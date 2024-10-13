@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from apiGateway.src.routes.restaurant import router as restaurantrouter
+from apiGateway.src.routes.user import router as userrouter
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -12,7 +13,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 app.include_router(restaurantrouter, prefix="/api/restaurant")
+app.include_router(userrouter, prefix="/api/user")
+
 
 if __name__ == "__main__":
     import uvicorn
