@@ -1,0 +1,1 @@
+RESTAURANT_API_URL = "http://restaurant-api:8000/api/restaurant"
