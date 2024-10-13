@@ -15,7 +15,7 @@ async def create_restaurant(userId: str, restaurant_data: dict):
 @router.get("/get")
 async def retrieve_restaurants():
     async with httpx.AsyncClient() as client:
-        response = await client.get(f"{RESTAURANT_API_URL}/get")
+        response = await client.get(f"{RESTAURANT_API_URL}/get",  timeout=100.0)
         if response.status_code != 200:
             raise HTTPException(status_code=response.status_code, detail=response.json())
     return response.json()
