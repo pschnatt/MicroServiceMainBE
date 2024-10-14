@@ -36,7 +36,7 @@ async def call_verify_user(request: Request):
         headers = {"Authorization": request.headers.get("Authorization")}  
         
         try:
-            res = await client.get(f"{USER_API_URL}/verify", cookies=cookies, headers=headers)
+            res = await client.get(f"{USER_API_URL}/verify", cookies=cookies)
             res.raise_for_status()
         except httpx.HTTPStatusError as e:
             raise HTTPException(status_code=e.response.status_code, detail=e.response.json())
