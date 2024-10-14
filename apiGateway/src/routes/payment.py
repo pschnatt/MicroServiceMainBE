@@ -45,7 +45,7 @@ async def retrieve_account_ByPaymentId(paymentId: str):
     return response.json()
 
 @router.put("/{paymentId}/update/")
-async def update_restaurant(paymentId: str, payment_data: dict):
+async def update_payment(paymentId: str, payment_data: dict):
     async with httpx.AsyncClient() as client:
         response = await client.put(f"{PAYMENT_API_URL}/{paymentId}/update/", json=payment_data)
         if response.status_code != 200:
@@ -53,7 +53,7 @@ async def update_restaurant(paymentId: str, payment_data: dict):
     return response.json()
 
 @router.delete("/{userId}/delete/{paymentId}")
-async def delete_restaurant(userId: str, paymentId: str):
+async def delete_payment(userId: str, paymentId: str):
     async with httpx.AsyncClient() as client:
         response = await client.delete(f"{PAYMENT_API_URL}/{userId}/delete/{paymentId}")
         if response.status_code != 200:
