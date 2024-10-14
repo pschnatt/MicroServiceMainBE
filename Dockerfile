@@ -19,7 +19,7 @@ RUN pip install  -r requirements.txt
 COPY . .
 
 # Expose the port the application will listen on (replace 8000 with your desired port)
-EXPOSE 8002
+EXPOSE 8004
 
 # Define the command to run the application
 CMD ["uvicorn", "main:app", "--reload"]
